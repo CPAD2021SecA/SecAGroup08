@@ -19,7 +19,9 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./fitness_app
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
        # Setup Java environment in order to build the Android app.
@@ -33,9 +35,7 @@ jobs:
       with:
         channel: 'beta' # 'dev', 'alpha', default to: 'stable'
         # flutter-version: '1.12.x' # you can also specify exact version of flutter
-    
-    - run: cd fitness_app
-    
+        
     # Get flutter dependencies.
     - run: flutter pub get
 
