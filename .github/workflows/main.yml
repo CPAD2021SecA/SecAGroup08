@@ -34,6 +34,8 @@ jobs:
         channel: 'beta' # 'dev', 'alpha', default to: 'stable'
         # flutter-version: '1.12.x' # you can also specify exact version of flutter
     
+    - run: cd fitness_app
+    
     # Get flutter dependencies.
     - run: flutter pub get
 
