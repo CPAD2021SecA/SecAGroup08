@@ -1,3 +1,4 @@
+import 'package:fitness_app/screens/splashscreen/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,7 +7,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Text("Fitness App"),
+      home: const WelcomePage(title: 'Fitness App'),
     );
   }
 }
-
