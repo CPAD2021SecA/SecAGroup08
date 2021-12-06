@@ -1,35 +1,22 @@
-import 'package:flutter/cupertino.dart';
+import 'package:fitness_app/screens/login-signup/login.dart';
+import 'package:fitness_app/screens/splashscreen/welcome_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'core/color_constants.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-  await Firebase.initializeApp();
-  runApp(MyApp());
+// import 'authentication.dart';
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final isLoggedIn = FirebaseAuth.instance.currentUser != null;
-
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Fitness',
+      title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme:
-        const TextTheme(bodyText1: TextStyle(color: ColorConstants.textColor)),
-        fontFamily: 'NotoSansKR',
-        scaffoldBackgroundColor: Colors.white,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      )
+        primarySwatch: Colors.blue,
+      ),
+      home: const WelcomePage(title: 'Fitness App'),
     );
   }
 }
