@@ -1,3 +1,4 @@
+import 'package:fitness_app/screens/login-signup/login.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -26,7 +27,7 @@ class _WelcomePageWidgetState extends State<WelcomePage> {
           ),
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF000000), Color(0xFF1A181A), Color(0xFF000000)],
+              colors: [Color(0xFF45278D),Color(0xFF7243D7), Color(0xFF4D2A8D)],
               stops: [0.2, 0.6, 1],
               begin: AlignmentDirectional(0.64, -1),
               end: AlignmentDirectional(-0.64, 1),
@@ -59,7 +60,7 @@ class _WelcomePageWidgetState extends State<WelcomePage> {
                   'Fitness App',
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    color: Colors.blue,
+                    color: Colors.white70,
                     fontSize: 40,
                   ),
                 ),
@@ -68,15 +69,18 @@ class _WelcomePageWidgetState extends State<WelcomePage> {
                 alignment: const AlignmentDirectional(-0.02, 0.64),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: const Color(0xFF1C4DA1),
-                    onPrimary: Colors.white,
-                    shadowColor: Colors.greenAccent,
-                    elevation: 3,
+                    primary: const Color(0xFF2D1D7F),
+                    onPrimary: Colors.white70,
+                    shadowColor: Colors.white,
+                    elevation: 5,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(32.0)),
                     minimumSize: const Size(200, 80), //////// HERE
                   ),
-                  onPressed: () {},
+                  onPressed: () { Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  );},
                   child: const Text(
                     'Get Started',
                     style: TextStyle(
