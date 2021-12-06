@@ -1,6 +1,6 @@
 import 'package:fitness_app/screens/splashscreen/welcome_page.dart';
 import 'package:flutter/material.dart';
-// import 'authentication.dart';
+
 void main() {
   runApp(const MyApp());
 }

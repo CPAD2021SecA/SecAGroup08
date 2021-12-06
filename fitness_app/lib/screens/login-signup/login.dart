@@ -4,15 +4,17 @@ import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatelessWidget {
-  Duration get loginTime => Duration(milliseconds: 2250);
+  const LoginScreen({Key? key}) : super(key: key);
+
+  Duration get loginTime => const Duration(milliseconds: 2250);
 
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
       title: 'Let\'s Get Started',
       logo: const AssetImage('assets/images/fitness.jpg'),
-      onLogin: (String ) {  },
-      onSignup: (String ) {  },
+      onLogin: (param) {},
+      onSignup: (param) {},
 
       loginProviders: <LoginProvider>[
         LoginProvider(
@@ -55,7 +57,7 @@ class LoginScreen extends StatelessWidget {
         ),
       ],
       onSubmitAnimationCompleted: () {
-      }, onRecoverPassword: (String ) {  },
+      }, onRecoverPassword: (param) {  },
     );
   }
 }
