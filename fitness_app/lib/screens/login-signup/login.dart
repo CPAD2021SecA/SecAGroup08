@@ -11,10 +11,14 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      title: 'Let\'s Get Started',
+      title: 'Login',
       logo: const AssetImage('assets/images/fitness.jpg'),
       onLogin: (param) {},
       onSignup: (param) {},
+      theme: LoginTheme(
+        primaryColor: Colors.deepPurple,
+        accentColor: Colors.white70,
+      ),
 
       loginProviders: <LoginProvider>[
         LoginProvider(
