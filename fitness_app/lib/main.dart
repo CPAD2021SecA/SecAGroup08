@@ -1,4 +1,3 @@
-import 'package:fitness_app/screens/login-signup/login.dart';
 import 'package:fitness_app/screens/splashscreen/welcome_page.dart';
 import 'package:flutter/material.dart';
 // import 'authentication.dart';
