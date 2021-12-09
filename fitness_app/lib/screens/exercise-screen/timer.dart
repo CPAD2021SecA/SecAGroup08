@@ -30,12 +30,14 @@ class _ExerciseScreenState extends State<ExerciseScreen>{
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
+        child: OrientationBuilder(
+        builder: (BuildContext context, Orientation orientation){
+          return Column(
             mainAxisAlignment: MainAxisAlignment.center,
 
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * 1,
+                width: orientation == Orientation.landscape ? MediaQuery.of(context).size.width * 0.5 : MediaQuery.of(context).size.width * 1,
                 height: MediaQuery.of(context).size.height * 0.4,
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -47,30 +49,29 @@ class _ExerciseScreenState extends State<ExerciseScreen>{
                   shape: BoxShape.rectangle,
                 ),
               ),
-              const SizedBox(height: 30,),
+              SizedBox(height: orientation == Orientation.landscape ? 5 : 30),
               Column(
                 children: [
-                  getClock(),
-                  const SizedBox(height: 30,),
+                  getClock(orientation),
+                  SizedBox(height: orientation == Orientation.landscape ? 5 : 30),
                   createButton()
                 ],
               ),
-
-        ],
-      ),
-    ),
-    );
+            ],
+          );
+      })
+    ));
   }
 
 
 
-  createTime() {
+  createTime(Orientation orientation) {
     return Center(
       child: Text(
         '$second',
-        style: const TextStyle(
+        style: TextStyle(
             color: Colors.black,
-            fontSize: 80
+            fontSize: orientation == Orientation.landscape ? 50 : 80
         ),
       ),
     );
@@ -88,7 +89,7 @@ class _ExerciseScreenState extends State<ExerciseScreen>{
           second--;
         });
       }else{
-        stopTimer(reset: false);
+        stopTimer(reset: true);
       }
     });
   }
@@ -132,10 +133,10 @@ class _ExerciseScreenState extends State<ExerciseScreen>{
     }
   }
 
-  getClock() {
+  getClock(Orientation orientation) {
     return SizedBox(
-      width: 200,
-      height: 200,
+      width: orientation == Orientation.landscape ? 120 : 200,
+      height: orientation == Orientation.landscape ? 120 : 200,
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -145,7 +146,7 @@ class _ExerciseScreenState extends State<ExerciseScreen>{
             strokeWidth: 10,
             backgroundColor: Colors.yellow,
           ),
-          createTime()
+          createTime(orientation)
         ],
       ),
     );
