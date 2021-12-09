@@ -12,7 +12,7 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
+          const DrawerHeader(
             child: Text(
               'Side menu',
               style: TextStyle(color: Colors.white, fontSize: 20),
@@ -26,43 +26,43 @@ class NavDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.input),
-            title: Text('Welcome'),
+            leading: const Icon(Icons.input),
+            title: const Text('Welcome'),
             onTap: () => {},
           ),
           ListTile(
-            leading: Icon(Icons.verified_user),
-            title: Text('My Profile'),
+            leading: const Icon(Icons.verified_user),
+            title: const Text('My Profile'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Reminder'),
+            leading: const Icon(Icons.settings),
+            title: const Text('Reminder'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Countdown time'),
+            leading: const Icon(Icons.settings),
+            title: const Text('Countdown time'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Sound options'),
+            leading: const Icon(Icons.settings),
+            title: const Text('Sound options'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('Feedback'),
+            leading: const Icon(Icons.border_color),
+            title: const Text('Feedback'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
+            leading: const Icon(Icons.exit_to_app),
+            title: const Text('Logout'),
             onTap: () => {Navigator.of(context).pop()},
           ),
         ],
