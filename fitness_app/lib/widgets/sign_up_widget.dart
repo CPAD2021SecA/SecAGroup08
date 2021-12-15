@@ -13,13 +13,13 @@ class SignUpWidget extends StatelessWidget {
 
   Widget buildSignUp() => Column(
     children: [
-      Spacer(),
+      const Spacer(),
       Align(
         alignment: Alignment.centerLeft,
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 20),
           width: 175,
-          child: Text(
+          child: const Text(
             'Welcome to the fitNESS app',
             style: TextStyle(
               color: Colors.white,
@@ -29,14 +29,14 @@ class SignUpWidget extends StatelessWidget {
           ),
         ),
       ),
-      Spacer(),
+      const Spacer(),
       GoogleSignupButtonWidget(),
-      SizedBox(height: 12),
-      Text(
+      const SizedBox(height: 12),
+      const Text(
         'Login to continue',
         style: TextStyle(fontSize: 16),
       ),
-      Spacer(),
+      const Spacer(),
     ],
   );
 }

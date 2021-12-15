@@ -18,7 +18,7 @@ class About extends StatelessWidget {
           title: Text('the fitNESS app'),
           actions: [ RaisedButton(
             color: Colors.deepOrange,
-            child: CircleAvatar(
+            child: const CircleAvatar(
               maxRadius: 25,
               // backgroundImage: NetworkImage(user!.photoURL),
             ),
