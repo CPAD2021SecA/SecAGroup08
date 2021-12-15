@@ -1,4 +1,6 @@
+import 'package:fitness_app/screens/about/about.dart';
 import 'package:fitness_app/screens/home_page/home_page.dart';
+import 'package:fitness_app/screens/user-profile/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +27,7 @@ class SideDrawer extends StatelessWidget {
             leading: Icon(Icons.home),
             title: Text('Home'),
             onTap: () => {
-              Navigator.pushNamed(context, HomePage.id)
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()))
             },
           ),
           ListTile(
@@ -36,17 +38,17 @@ class SideDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingsPage()))
+            },
           ),
-          ListTile(
-            leading: Icon(Icons.contact_support),
-            title: Text('Contact Us'),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
+
           ListTile(
             leading: Icon(Icons.info),
             title: Text('About'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => About()))
+            },
           ),
 
           ListTile(

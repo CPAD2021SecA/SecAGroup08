@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 
-class MyHomePageState extends StatefulWidget {
+class SettingsPage extends StatefulWidget {
 
-  const MyHomePageState({Key? key}) : super(key: key);
+  const SettingsPage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePageState> createState() => _MyHomePageStateState();
+  State<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _MyHomePageStateState extends State<MyHomePageState> {
+class _SettingsPageState extends State<SettingsPage> {
   bool isSwitched = false;
 
   @override

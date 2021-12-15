@@ -1,5 +1,7 @@
+import 'package:fitness_app/screens/about/about.dart';
 import 'package:fitness_app/screens/home_page/home_page.dart';
 import 'package:fitness_app/screens/splashscreen/welcome_page.dart';
+import 'package:fitness_app/widgets/logged_in_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
       routes: {
         WelcomePage.id: (context) => WelcomePage(),
         HomePage.id: (context) => HomePage(),
+        About.id: (context) => About(),
+        LoggedInWidget.id: (context) => LoggedInWidget(),
       },
       initialRoute: WelcomePage.id,
       home: WelcomePage(),

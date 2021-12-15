@@ -8,10 +8,6 @@ class LoggedInWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
-    if(user==null){
-      var defaultImage = "";
-      var defaultName = "Anonymous";
-    }
 
     return SafeArea(
       child: Scaffold(
@@ -23,7 +19,7 @@ class LoggedInWidget extends StatelessWidget {
             color: Colors.deepOrange,
             child: CircleAvatar(
               maxRadius: 25,
-              backgroundImage: NetworkImage(""),
+              // backgroundImage: NetworkImage(user!.photoURL),
             ),
             onPressed:(){
               //go to edit profile
