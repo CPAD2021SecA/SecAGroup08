@@ -19,7 +19,7 @@ class SignUpWidget extends StatelessWidget {
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 20),
           width: 175,
-          child: Text(
+          child: const Text(
             'Welcome to the fitNESS app',
             style: TextStyle(
               color: Colors.white,
@@ -32,7 +32,7 @@ class SignUpWidget extends StatelessWidget {
       Spacer(),
       GoogleSignupButtonWidget(),
       SizedBox(height: 12),
-      Text(
+      const Text(
         'Login to continue',
         style: TextStyle(fontSize: 16),
       ),

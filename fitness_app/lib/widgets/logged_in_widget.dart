@@ -14,10 +14,10 @@ class LoggedInWidget extends StatelessWidget {
         drawer: SideDrawer(),
         appBar: AppBar(
           centerTitle: true,
-          title: Text('the fitNESS app'),
+          title: const Text('the fitNESS app'),
           actions: [ RaisedButton(
             color: Colors.deepOrange,
-            child: CircleAvatar(
+            child: const CircleAvatar(
               maxRadius: 25,
               // backgroundImage: NetworkImage(user!.photoURL),
             ),
@@ -35,9 +35,9 @@ class LoggedInWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [
+            children: const [
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: EdgeInsets.only(top: 20),
                 child: Text(
                   'Welcome '  + '!',
                   style: TextStyle(color: Colors.white,

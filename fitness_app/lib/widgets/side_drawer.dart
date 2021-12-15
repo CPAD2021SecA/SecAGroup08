@@ -11,7 +11,7 @@ class SideDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: <Widget>[
-          DrawerHeader(
+          const DrawerHeader(
             child: Center(
               child: Text(
                 'the fitNESS app',
