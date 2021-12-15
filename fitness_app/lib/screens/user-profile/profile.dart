@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/chart.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
+//import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ProfileApp extends StatelessWidget {
 
@@ -180,11 +180,11 @@ class ProfileApp extends StatelessWidget {
 
             child: ElevatedButton(
                 onPressed: (){},
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(80.0)
-                ),
-                elevation: 0.0,
-                padding: const EdgeInsets.all(0.0),
+//                 shape: RoundedRectangleBorder(
+//                     borderRadius: BorderRadius.circular(80.0)
+//                 ),
+//                 elevation: 0.0,
+//                 padding: const EdgeInsets.all(0.0),
                 child: Ink(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
