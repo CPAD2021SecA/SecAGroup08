@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterLogin(
       title: 'Login',
-      logo: const AssetImage('assets/images/fitness.jpg'),
+      logo: const AssetImage('assets/images/fitness2.png'),
       onLogin: (param) {},
       onSignup: (param) {},
       theme: LoginTheme(
@@ -40,27 +40,9 @@ class LoginScreen extends StatelessWidget {
             return null;
           },
         ),
-        LoginProvider(
-          icon: FontAwesomeIcons.linkedinIn,
-          callback: () async {
-            debugPrint('start linkdin sign in');
-            await Future.delayed(loginTime);
-            debugPrint('stop linkdin sign in');
-            return null;
-          },
-        ),
-        LoginProvider(
-          icon: FontAwesomeIcons.githubAlt,
-          callback: () async {
-            debugPrint('start github sign in');
-            await Future.delayed(loginTime);
-            debugPrint('stop github sign in');
-            return null;
-          },
-        ),
       ],
       onSubmitAnimationCompleted: () {
-      }, onRecoverPassword: (param) {  },
+      }, onRecoverPassword: (param) {} ,
     );
   }
 }
