@@ -13,7 +13,7 @@ class SignUpWidget extends StatelessWidget {
 
   Widget buildSignUp() => Column(
     children: [
-      Spacer(),
+      const Spacer(),
       Align(
         alignment: Alignment.centerLeft,
         child: Container(
@@ -29,14 +29,14 @@ class SignUpWidget extends StatelessWidget {
           ),
         ),
       ),
-      Spacer(),
+      const Spacer(),
       GoogleSignupButtonWidget(),
-      SizedBox(height: 12),
+      const SizedBox(height: 12),
       const Text(
         'Login to continue',
         style: TextStyle(fontSize: 16),
       ),
-      Spacer(),
+      const Spacer(),
     ],
   );
 }

@@ -24,28 +24,28 @@ class SideDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home'),
+            leading: const Icon(Icons.home),
+            title: const Text('Home'),
             onTap: () => {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()))
             },
           ),
           ListTile(
-            leading: Icon(Icons.stacked_bar_chart),
-            title: Text('View Stats'),
+            leading: const Icon(Icons.stacked_bar_chart),
+            title: const Text('View Stats'),
             onTap: () => {},
           ),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            title: const Text('Settings'),
             onTap: () => {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SettingsPage()))
             },
           ),
 
           ListTile(
-            leading: Icon(Icons.info),
-            title: Text('About'),
+            leading: const Icon(Icons.info),
+            title: const Text('About'),
             onTap: () => {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => About()))
             },
@@ -58,7 +58,7 @@ class SideDrawer extends StatelessWidget {
                 Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.logout();
               },
-              child: Text('Logout'),
+              child: const Text('Logout'),
             ),
 
           ),
