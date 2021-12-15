@@ -1,7 +1,6 @@
-//import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter/chart.dart';
-//import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ProfileApp extends StatelessWidget {
 
@@ -142,36 +141,6 @@ class ProfileApp extends StatelessWidget {
                 ),
               )
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  "Moto",
-                  style: TextStyle(
-                      color: Colors.redAccent,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 28.0
-                  ),
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Text('Exercise should be regarded as tribute to the heart',
-                  style: TextStyle(
-                    fontSize: 22.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.black,
-                    letterSpacing: 2.0,
-                  ),
-                ),
-
-              ],
-            ),
-          ),
           const SizedBox(
             height: 20.0,
           ),
@@ -180,19 +149,14 @@ class ProfileApp extends StatelessWidget {
 
             child: ElevatedButton(
                 onPressed: (){},
-//                 shape: RoundedRectangleBorder(
-//                     borderRadius: BorderRadius.circular(80.0)
-//                 ),
-//                 elevation: 0.0,
-//                 padding: const EdgeInsets.all(0.0),
                 child: Ink(
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
                         begin: Alignment.centerRight,
                         end: Alignment.centerLeft,
                         colors: [Colors.pink,Colors.pinkAccent]
                     ),
-                    borderRadius: BorderRadius.circular(30.0),
+                    //borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: Container(
                     constraints: const BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
@@ -204,6 +168,11 @@ class ProfileApp extends StatelessWidget {
                 )
             ),
           ),
+            SizedBox(
+                height: 300.0,
+                width: 280.0,
+                child: SfCartesianChart(),
+            ),
         ],
       ),
     );
