@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:fitness_app/core/utils/orientation_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -37,8 +38,8 @@ class _ExerciseScreenState extends State<ExerciseScreen>{
 
             children: [
               Container(
-                width: orientation == Orientation.landscape ? MediaQuery.of(context).size.width * 0.5 : MediaQuery.of(context).size.width * 1,
-                height: MediaQuery.of(context).size.height * 0.4,
+                width: OrientationUtil.getWidth(context, 1, 0.5),
+                height: OrientationUtil.getHeight(context, 0.4, 0.4),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
