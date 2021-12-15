@@ -51,7 +51,7 @@ class _WelcomePageWidgetState extends State<WelcomePage> {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: Image.asset(
-                        'assets/images/fitness.jpg',
+                        'assets/images/fitness2.png',
                       ).image,
                     ),
                     shape: BoxShape.circle,
@@ -73,7 +73,7 @@ class _WelcomePageWidgetState extends State<WelcomePage> {
                 alignment: const AlignmentDirectional(-0.02, 0.64),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: const Color(0xFF2D1D7F),
+                    primary: const Color(0xFF019E8C),
                     onPrimary: Colors.white70,
                     shadowColor: Colors.white,
                     elevation: 5,
