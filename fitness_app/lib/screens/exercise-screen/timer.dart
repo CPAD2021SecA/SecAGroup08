@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:fitness_app/core/utils/orientation_util.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
