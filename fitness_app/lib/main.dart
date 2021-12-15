@@ -1,4 +1,4 @@
-import 'package:fitness_app/screens/splashscreen/welcome_page.dart';
+import 'package:fitness_app/screens/user-profile/menu.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Fitness App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WelcomePage(title: 'Fitness App'),
+      home: const NavDrawer(),
     );
   }
 }
