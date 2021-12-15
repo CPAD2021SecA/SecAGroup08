@@ -1,9 +1,13 @@
+import 'package:fitness_app/screens/home_page/home_page.dart';
 import 'package:fitness_app/screens/login-signup/login.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
-  const WelcomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+
+  static const String id = 'WelcomeScreen';
+
+  const WelcomePage({Key? key}) : super(key: key);
+
 
   @override
   State<WelcomePage> createState() => _WelcomePageWidgetState();
@@ -77,10 +81,9 @@ class _WelcomePageWidgetState extends State<WelcomePage> {
                         borderRadius: BorderRadius.circular(32.0)),
                     minimumSize: const Size(200, 80), //////// HERE
                   ),
-                  onPressed: () { Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginScreen()),
-                  );},
+                  onPressed: () {
+                    Navigator.pushNamed(context, HomePage.id);
+                  },
                   child: const Text(
                     'Get Started',
                     style: TextStyle(
