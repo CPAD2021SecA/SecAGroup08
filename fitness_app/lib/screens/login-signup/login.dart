@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -11,10 +10,14 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      title: 'Let\'s Get Started',
-      logo: const AssetImage('assets/images/fitness.jpg'),
+      title: 'Login',
+      logo: const AssetImage('assets/images/fitness2.png'),
       onLogin: (param) {},
       onSignup: (param) {},
+      theme: LoginTheme(
+        primaryColor: Colors.deepPurple,
+        accentColor: Colors.white70,
+      ),
 
       loginProviders: <LoginProvider>[
         LoginProvider(
@@ -37,27 +40,9 @@ class LoginScreen extends StatelessWidget {
             return null;
           },
         ),
-        LoginProvider(
-          icon: FontAwesomeIcons.linkedinIn,
-          callback: () async {
-            debugPrint('start linkdin sign in');
-            await Future.delayed(loginTime);
-            debugPrint('stop linkdin sign in');
-            return null;
-          },
-        ),
-        LoginProvider(
-          icon: FontAwesomeIcons.githubAlt,
-          callback: () async {
-            debugPrint('start github sign in');
-            await Future.delayed(loginTime);
-            debugPrint('stop github sign in');
-            return null;
-          },
-        ),
       ],
       onSubmitAnimationCompleted: () {
-      }, onRecoverPassword: (param) {  },
+      }, onRecoverPassword: (param) {} ,
     );
   }
 }
