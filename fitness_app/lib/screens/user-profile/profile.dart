@@ -178,7 +178,7 @@ class ProfileApp extends StatelessWidget {
           SizedBox(
             width: 300.00,
 
-            child: RaisedButton(
+            child: ElevatedButton(
                 onPressed: (){},
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(80.0)
