@@ -19,7 +19,7 @@ class _MyHomePageStateState extends State<MyHomePageState> {
       body: SettingsList(
         sections: [
           SettingsSection(
-            titlePadding: EdgeInsets.all(20),
+            titlePadding: const EdgeInsets.all(20),
             title: 'Section 1',
             tiles: [
               SettingsTile(
