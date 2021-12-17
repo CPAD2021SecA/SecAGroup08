@@ -1,9 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ProfileApp extends StatelessWidget {
-
-  const ProfileApp({Key? key}) : super(key: key);
+  final User user;
+  const ProfileApp({Key? key, required this.user}) : super(key: key);
 
   Duration get loginTime => const Duration(milliseconds: 2250);
 
@@ -37,8 +38,8 @@ class ProfileApp extends StatelessWidget {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      const Text(
-                        "Natasha",
+                       Text(
+                         user!.displayName!,
                         style: TextStyle(
                           fontSize: 22.0,
                           color: Colors.white,

@@ -1,9 +1,13 @@
+import 'package:fitness_app/screens/home_page/home_page.dart';
 import 'package:fitness_app/screens/login-signup/login.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
-  const WelcomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+
+  static const String id = 'WelcomeScreen';
+
+  const WelcomePage({Key? key}) : super(key: key);
+
 
   @override
   State<WelcomePage> createState() => _WelcomePageWidgetState();
@@ -47,7 +51,7 @@ class _WelcomePageWidgetState extends State<WelcomePage> {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: Image.asset(
-                        'assets/images/fitness.jpg',
+                        'assets/images/fitness2.png',
                       ).image,
                     ),
                     shape: BoxShape.circle,
@@ -69,7 +73,7 @@ class _WelcomePageWidgetState extends State<WelcomePage> {
                 alignment: const AlignmentDirectional(-0.02, 0.64),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: const Color(0xFF2D1D7F),
+                    primary: const Color(0xFF019E8C),
                     onPrimary: Colors.white70,
                     shadowColor: Colors.white,
                     elevation: 5,
@@ -77,10 +81,9 @@ class _WelcomePageWidgetState extends State<WelcomePage> {
                         borderRadius: BorderRadius.circular(32.0)),
                     minimumSize: const Size(200, 80), //////// HERE
                   ),
-                  onPressed: () { Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginScreen()),
-                  );},
+                  onPressed: () {
+                    Navigator.pushNamed(context, HomePage.id);
+                  },
                   child: const Text(
                     'Get Started',
                     style: TextStyle(
