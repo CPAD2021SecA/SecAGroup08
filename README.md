@@ -22,6 +22,15 @@ To run the project: <br> <br>
 3. Once it's downloaded, open Downloads, tap on the APK file, and tap Yes when prompted. <br>
 5. The app will begin installing on your device. <br>
 
+<h2>To Contribute</h2>
+
+1. Fork the repo on GitHub <br>
+2. Clone the project to your own machine <br>
+3. Commit changes to your own branch <br> 
+4. Push your work back up to your fork <br>
+5. Submit a Pull request so that we can review your changes <br>
+NOTE: Be sure to merge the latest from "upstream" before making a pull request! <br>
+
 	  
 ## Group Members:
 | Name           | Bits Roll No.     | Bits Mail ID                             | GitHub ID |
