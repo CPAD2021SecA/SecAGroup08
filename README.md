@@ -15,7 +15,7 @@
 > This is a flutter based fitness application that tracks your exercise routine. The application uses firebase for data storage and authentication of users. Users can also login via their gmail ids. Currently we are supporting android and ios versions.
 
 <h2>Installation♀</h2>
-To run the project
+To run the project: <br>
 1.Download the .apk file <br>
 2.Before you can install it on your phone you will need to make sure that third-party apps are allowed on your device. Go to Menu > Settings > Security > and check Unknown Sources to allow your phone to install apps from sources other than the Google Play Store. <br>
 3.Once it's downloaded, open Downloads, tap on the APK file, and tap Yes when prompted. <br>
