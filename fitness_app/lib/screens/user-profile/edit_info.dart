@@ -66,7 +66,7 @@ class MyCustomFormState extends State<MyCustomForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0)
+              padding: EdgeInsets.symmetric(vertical: 10.0)
           ),
           TextFormField(
             onChanged: (value){
@@ -90,7 +90,7 @@ class MyCustomFormState extends State<MyCustomForm> {
             },
           ),
           const Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0)
+              padding: EdgeInsets.symmetric(vertical: 10.0)
           ),
           TextFormField(
             onChanged: (value){
@@ -114,7 +114,7 @@ class MyCustomFormState extends State<MyCustomForm> {
             },
           ),
           const Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0)
+              padding: EdgeInsets.symmetric(vertical: 10.0)
           ),
           TextFormField(
             onChanged: (value){
