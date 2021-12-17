@@ -1,7 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitness_app/widgets/side_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class SignupPage extends StatelessWidget {
-  const SignupPage({Key? key}) : super(key: key);
+final db = FirebaseFirestore.instance;
+
+class EditProfile extends StatelessWidget {
+
+  final User user;
+  const EditProfile({Key? key, required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +18,11 @@ class SignupPage extends StatelessWidget {
       title: appTitle,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text(appTitle),
+          centerTitle: true,
+          title: const Text('the fitNESS app'),
         ),
-        body: const MyCustomForm(),
+        drawer: SideDrawer(),
+        body:  MyCustomForm( user: user),
       ),
     );
   }
@@ -21,11 +30,12 @@ class SignupPage extends StatelessWidget {
 
 // Create a Form widget.
 class MyCustomForm extends StatefulWidget {
-  const MyCustomForm({Key? key}) : super(key: key);
+  final User user;
+  const MyCustomForm({Key? key, required this.user}) : super(key: key);
 
   @override
   MyCustomFormState createState() {
-    return MyCustomFormState();
+    return MyCustomFormState(user);
   }
 }
 
@@ -38,9 +48,14 @@ class MyCustomFormState extends State<MyCustomForm> {
   // Note: This is a GlobalKey<FormState>,
   // not a GlobalKey<MyCustomFormState>.
   final _formKey = GlobalKey<FormState>();
-
+  late String height, weight, age;
+  User? user;
+  MyCustomFormState(User user){
+    this.user = user;
+  }
   @override
   Widget build(BuildContext context) {
+
     // Build a Form widget using the _formKey created above.
     TextEditingController _controllerHeight = TextEditingController();
     TextEditingController _controllerWeight = TextEditingController();
@@ -54,6 +69,9 @@ class MyCustomFormState extends State<MyCustomForm> {
               padding: EdgeInsets.symmetric(vertical: 10.0)
           ),
           TextFormField(
+            onChanged: (value){
+              height = value;
+            },
             controller: _controllerHeight,
             cursorRadius: const Radius.circular(5.0),
             decoration:  InputDecoration(
@@ -75,6 +93,9 @@ class MyCustomFormState extends State<MyCustomForm> {
               padding: EdgeInsets.symmetric(vertical: 10.0)
           ),
           TextFormField(
+            onChanged: (value){
+              weight = value;
+            },
             controller: _controllerWeight,
           cursorRadius: const Radius.circular(5.0),
             decoration: InputDecoration(
@@ -96,6 +117,9 @@ class MyCustomFormState extends State<MyCustomForm> {
               padding: EdgeInsets.symmetric(vertical: 10.0)
           ),
           TextFormField(
+            onChanged: (value){
+              age = value;
+            },
             controller: _controllerAge,
             cursorRadius: const Radius.circular(5.0),
             decoration:  InputDecoration(
@@ -128,11 +152,30 @@ class MyCustomFormState extends State<MyCustomForm> {
               onPressed: () {
                 // Validate returns true if the form is valid, or false otherwise.
                 if (_formKey.currentState!.validate()) {
+
                   // If the form is valid, display a snackbar. In the real world,
                   // you'd often call a server or save the information in a database.
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Processing Data')),
+
+                  // return _db
+                  //     .collection('jobs')
+                  //     .where("categoryId", isEqualTo: categoryId)
+                  //   .getDocuments()
+                  //     .then((v) {
+                  //     try{
+                  //     v.documents[0].data.update('isApproved', (bool) => true,ifAbsent: ()=>true);
+
+                  db.collection('profile').doc(user!.email).update(
+                      {
+                        'height': height,
+                        'age': age,
+                        'weight': weight
+                      }
                   );
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Data updated')),
+                  );
+
                 }
                 _controllerHeight.clear();
                 _controllerWeight.clear();

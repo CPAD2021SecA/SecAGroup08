@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitness_app/screens/user-profile/edit_info.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -30,6 +31,14 @@ class _ProfileAppState extends State<ProfileApp> {
     asyncFunc();
     super.initState();
   }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if(state == AppLifecycleState.resumed){
+      asyncFunc();
+    }
+  }
+
 
   //
   // // Get value of field date from document dashboard/totalVisitors
@@ -184,7 +193,9 @@ class _ProfileAppState extends State<ProfileApp> {
             width: 300.00,
 
             child: ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>  EditProfile(user: widget.user)));
+                },
                 child: Ink(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -195,6 +206,7 @@ class _ProfileAppState extends State<ProfileApp> {
                     //borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: Container(
+
                     constraints: const BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
                     alignment: Alignment.center,
                     child: const Text("Edit Profile",
@@ -204,16 +216,36 @@ class _ProfileAppState extends State<ProfileApp> {
                 )
             ),
           ),
-          SizedBox(
+            SizedBox(
             height: 300.0,
             width: 280.0,
-            child: SfCartesianChart(),
-          ),
+            child: SfCartesianChart(                  // Initialize category axis
+            primaryXAxis: CategoryAxis(),
+            series: <LineSeries<SalesData, String>>[
+            LineSeries<SalesData, String>(
+            // Bind data source
+            dataSource: <SalesData>[
+            SalesData('Jan', 35),
+            SalesData('Feb', 28),
+            SalesData('Mar', 34),
+            SalesData('Apr', 32),
+            SalesData('May', 40)
+            ],
+            xValueMapper: (SalesData sales, _) => sales.year,
+            yValueMapper: (SalesData sales, _) => sales.sales
+            )
+            ]),
+            ),
         ],
       ),
     );
   }
 }
 
+class SalesData {
+  SalesData(this.year, this.sales);
+  final String year;
+  final double sales;
+}
 
 
