@@ -69,13 +69,9 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
               ),
               onPressed:(){
                 //go to edit profile
-
                 Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileApp(user: user)));
-
               },
             ),
-
-
             ],
           ),
           body: myGridView
