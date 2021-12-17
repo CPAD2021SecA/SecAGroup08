@@ -16,10 +16,10 @@
 
 <h2>Installation♀</h2>
 To run the project
-1.Download the .apk file
-2.Before you can install it on your phone you will need to make sure that third-party apps are allowed on your device. Go to Menu > Settings > Security > and check Unknown Sources to allow your phone to install apps from sources other than the Google Play Store.
-3.Once it's downloaded, open Downloads, tap on the APK file, and tap Yes when prompted. 
-5.The app will begin installing on your device.
+1.Download the .apk file <br>
+2.Before you can install it on your phone you will need to make sure that third-party apps are allowed on your device. Go to Menu > Settings > Security > and check Unknown Sources to allow your phone to install apps from sources other than the Google Play Store. <br>
+3.Once it's downloaded, open Downloads, tap on the APK file, and tap Yes when prompted. <br>
+5.The app will begin installing on your device. <br>
 
 	  
 ## Group Members:
