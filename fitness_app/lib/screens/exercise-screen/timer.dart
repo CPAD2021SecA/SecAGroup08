@@ -43,7 +43,7 @@ class _ExerciseScreenState extends State<ExerciseScreen>{
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: Image.asset(
-                      'assets/images/exercises/'+widget.passedImage+'.jpg',
+                      widget.passedImage,
                     ).image,
                   ),
                   shape: BoxShape.rectangle,
