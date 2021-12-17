@@ -1,20 +1,47 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class ProfileApp extends StatelessWidget {
+
+class ProfileApp extends StatefulWidget {
   final User user;
   const ProfileApp({Key? key, required this.user}) : super(key: key);
 
-  Duration get loginTime => const Duration(milliseconds: 2250);
+  @override
+  _ProfileAppState createState() => _ProfileAppState();
+}
 
+class _ProfileAppState extends State<ProfileApp> {
+  final db = FirebaseFirestore.instance;
+
+  var height, weight, age;
+  Future<void> asyncFunc() async => db.collection('profile').doc(widget.user.email).get()
+      .then((DocumentSnapshot documentSnapshot) {
+        height = documentSnapshot['height'];
+        weight =  documentSnapshot['weight'];
+        age = documentSnapshot['age'];
+  });
+  //
+  // // Get value of field date from document dashboard/totalVisitors
+  // firestoreDate = documentSnapshot.data()['date'];
+  //
+  // // Get value of field weekOfYear from document dashboard/totalVisitors
+  // firestoreWeek = documentSnapshot.data()['weekOfYear'];
+  //
+  // }
+  // );
+
+
+
+  Duration get loginTime => const Duration(milliseconds: 2250);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           Container(
-              decoration: const BoxDecoration(
+              decoration:  BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -29,17 +56,17 @@ class ProfileApp extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // CircleAvatar(
-                      //   backgroundImage: NetworkImage(
-                      //     "https://www.trendrr.net/wp-content/uploads/2017/06/Deepika-Padukone-1.jpg",
-                      //   ),
-                      //   radius: 50.0,
-                      // ),
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          widget.user!.photoURL!,
+                        ),
+                        radius: 50.0,
+                      ),
                       const SizedBox(
                         height: 10.0,
                       ),
-                       Text(
-                         user!.displayName!,
+                      Text(
+                        widget.user!.displayName!,
                         style: TextStyle(
                           fontSize: 22.0,
                           color: Colors.white,
@@ -60,7 +87,7 @@ class ProfileApp extends StatelessWidget {
                               Expanded(
                                 child: Column(
 
-                                  children: const [
+                                  children: [
                                     Text(
                                       "Height",
                                       style: TextStyle(
@@ -73,7 +100,7 @@ class ProfileApp extends StatelessWidget {
                                       height: 5.0,
                                     ),
                                     Text(
-                                      "5'2",
+                                      height,
                                       style: TextStyle(
                                         fontSize: 20.0,
                                         color: Colors.pinkAccent,
@@ -85,7 +112,7 @@ class ProfileApp extends StatelessWidget {
                               Expanded(
                                 child: Column(
 
-                                  children: const [
+                                  children:  [
                                     Text(
                                       "Weight",
                                       style: TextStyle(
@@ -98,7 +125,7 @@ class ProfileApp extends StatelessWidget {
                                       height: 5.0,
                                     ),
                                     Text(
-                                      "52KG",
+                                      weight+"KG",
                                       style: TextStyle(
                                         fontSize: 20.0,
                                         color: Colors.pinkAccent,
@@ -110,7 +137,7 @@ class ProfileApp extends StatelessWidget {
                               Expanded(
                                 child: Column(
 
-                                  children: const [
+                                  children:  [
                                     Text(
                                       "Age",
                                       style: TextStyle(
@@ -123,7 +150,7 @@ class ProfileApp extends StatelessWidget {
                                       height: 5.0,
                                     ),
                                     Text(
-                                      "24",
+                                      age,
                                       style: TextStyle(
                                         fontSize: 20.0,
                                         color: Colors.pinkAccent,
@@ -168,13 +195,16 @@ class ProfileApp extends StatelessWidget {
                 )
             ),
           ),
-            SizedBox(
-                height: 300.0,
-                width: 280.0,
-                child: SfCartesianChart(),
-            ),
+          SizedBox(
+            height: 300.0,
+            width: 280.0,
+            child: SfCartesianChart(),
+          ),
         ],
       ),
     );
   }
 }
+
+
+
