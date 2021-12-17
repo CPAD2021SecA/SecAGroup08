@@ -19,11 +19,13 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
   final db = FirebaseFirestore.instance;
   final user = FirebaseAuth.instance.currentUser;
 
-  Future<bool> rootFirebaseIsExists(DatabaseReference databaseReference)
-  async{ DataSnapshot snapshot = await databaseReference.once();    return snapshot !=null;  }
-
   @override
   void initState() {
+    db.collection('profile').doc(user!.email).set({
+      'height':'-',
+      'age':'-',
+      'weight':'-'
+    });
     super.initState();
 
   }

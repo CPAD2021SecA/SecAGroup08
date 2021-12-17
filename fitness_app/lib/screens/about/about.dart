@@ -16,19 +16,6 @@ class About extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text('the fitNESS app'),
-          actions: [ RaisedButton(
-            color: Colors.deepOrange,
-            child: const CircleAvatar(
-              maxRadius: 25,
-              // backgroundImage: NetworkImage(user!.photoURL),
-            ),
-            onPressed:(){
-              //go to edit profile
-            },
-          ),
-
-
-          ],
         ),
         body: ContactUs(
           logo: const AssetImage('assets/images/fitness2.png'),
