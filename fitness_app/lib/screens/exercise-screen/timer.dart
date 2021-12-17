@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:fitness_app/core/utils/orientation_util.dart';
+import 'package:fitness_app/widgets/side_drawer.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,6 +30,11 @@ class _ExerciseScreenState extends State<ExerciseScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('the fitNESS app'),
+      ),
+      drawer: SideDrawer(),
       body: Center(
         child: OrientationBuilder(
         builder: (BuildContext context, Orientation orientation){
