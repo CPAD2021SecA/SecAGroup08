@@ -1,5 +1,6 @@
 # CPAD Assignment SecAGroup08
 
+----------------------------------------------------
 
 <h1 align="center">The Fitness App🤸‍♀️</h1>
 <h3 align="center">Your body hears everything that your mind says!</h3>
