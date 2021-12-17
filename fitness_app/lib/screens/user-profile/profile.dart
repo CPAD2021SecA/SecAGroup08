@@ -6,7 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProfileApp extends StatefulWidget {
   final User user;
-  const ProfileApp({Key? key, required this.user}) : super(key: key);
+  var height = 'loading', weight='loading', age='loading';
+  ProfileApp({Key? key, required this.user}) : super(key: key);
 
   @override
   _ProfileAppState createState() => _ProfileAppState();
@@ -15,13 +16,21 @@ class ProfileApp extends StatefulWidget {
 class _ProfileAppState extends State<ProfileApp> {
   final db = FirebaseFirestore.instance;
 
-  var height, weight, age;
   Future<void> asyncFunc() async => db.collection('profile').doc(widget.user.email).get()
       .then((DocumentSnapshot documentSnapshot) {
-        height = documentSnapshot['height'];
-        weight =  documentSnapshot['weight'];
-        age = documentSnapshot['age'];
+        setState(() {
+          widget.height = documentSnapshot['height'];
+          widget.weight =  documentSnapshot['weight'];
+          widget.age = documentSnapshot['age'];
+        });
   });
+
+  @override
+  void initState() {
+    asyncFunc();
+    super.initState();
+  }
+
   //
   // // Get value of field date from document dashboard/totalVisitors
   // firestoreDate = documentSnapshot.data()['date'];
@@ -100,7 +109,7 @@ class _ProfileAppState extends State<ProfileApp> {
                                       height: 5.0,
                                     ),
                                     Text(
-                                      height,
+                                      widget.height,
                                       style: TextStyle(
                                         fontSize: 20.0,
                                         color: Colors.pinkAccent,
@@ -125,7 +134,7 @@ class _ProfileAppState extends State<ProfileApp> {
                                       height: 5.0,
                                     ),
                                     Text(
-                                      weight+"KG",
+                                      widget.weight+"KG",
                                       style: TextStyle(
                                         fontSize: 20.0,
                                         color: Colors.pinkAccent,
@@ -150,7 +159,7 @@ class _ProfileAppState extends State<ProfileApp> {
                                       height: 5.0,
                                     ),
                                     Text(
-                                      age,
+                                      widget.age,
                                       style: TextStyle(
                                         fontSize: 20.0,
                                         color: Colors.pinkAccent,
