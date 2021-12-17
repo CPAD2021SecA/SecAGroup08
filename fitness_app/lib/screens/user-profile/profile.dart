@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_app/screens/user-profile/edit_info.dart';
+import 'package:fitness_app/widgets/side_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -56,6 +57,11 @@ class _ProfileAppState extends State<ProfileApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('the fitNESS app'),
+      ),
+      drawer: SideDrawer(),
       body: Column(
         children: [
           Container(
