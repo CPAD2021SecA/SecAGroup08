@@ -13,6 +13,9 @@
 </p>
 
 > This is a flutter based fitness application that tracks your exercise routine. The application uses firebase for data storage and authentication of users. Users can also login via their gmail ids. Currently we are supporting android and ios versions.
+
+<h2>Installation♀</h2>
+
 	  
 ## Group Members:
 | Name           | Bits Roll No.     | Bits Mail ID                             | GitHub ID |
