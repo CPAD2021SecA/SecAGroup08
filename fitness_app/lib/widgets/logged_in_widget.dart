@@ -4,7 +4,8 @@ import 'package:fitness_app/screens/user-profile/profile.dart';
 import 'package:fitness_app/widgets/side_drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class LoggedInWidget extends StatefulWidget {
   static const String id = 'LoggedInScreen';
@@ -15,9 +16,20 @@ class LoggedInWidget extends StatefulWidget {
 
 class _LoggedInWidgetState extends State<LoggedInWidget> {
 
+  final db = FirebaseFirestore.instance;
+  final user = FirebaseAuth.instance.currentUser;
+
+  Future<bool> rootFirebaseIsExists(DatabaseReference databaseReference)
+  async{ DataSnapshot snapshot = await databaseReference.once();    return snapshot !=null;  }
+
+  @override
+  void initState() {
+    super.initState();
+
+  }
+
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
 
     var spacecrafts = ["PushUp", "Side Squats", "Squats", "PullUp"];
     var images = ["workout1.png","workout2.png","workout3.png", "workout4.png"];
@@ -36,7 +48,7 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
                 children: [
                   Image.asset("assets/images/exercises/"+images[index],
                     width: MediaQuery.of(context).size.width * 0.4,
-                    height: MediaQuery.of(context).size.height * 0.17,
+                    height: MediaQuery.of(context).size.height * 0.14,
                   ),
                   //mediaquery.of(context).size.width
                   Text(spacecrafts[index],style: const TextStyle(
@@ -69,7 +81,7 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
               ),
               onPressed:(){
                 //go to edit profile
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileApp(user: user)));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileApp(user: user!)));
               },
             ),
             ],
@@ -82,115 +94,3 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
 
 }
 
-
-//
-// class LoggedInWidget extends StatelessWidget {
-//   static const String id = 'LoggedInScreen';
-//   @override
-//   Widget build(BuildContext context) {
-//     final user = FirebaseAuth.instance.currentUser;
-//
-//     void getCurrentUser() {
-//       try {
-//         final user = _auth.currentUser;
-//         if (user != null) {
-//           loggedInUser = user;
-//           print(loggedInUser.email);
-//         }
-//       } catch (e) {
-//         print(e);
-//       }
-//     }
-//
-//     @override
-//     void initState() {
-//       getCurrentUser();
-//       super.initState();
-//     }
-//
-//
-//
-//     var spacecrafts = ["PushUp", "Side Squats", "Squats", "PullUp"];
-//     var images = ["workout1.png","workout2.png","workout3.png", "workout4.png"];
-//     var myGridView = GridView.builder(
-//       itemCount: spacecrafts.length,
-//       gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-//       itemBuilder: (BuildContext context, int index) {
-//         return GestureDetector(
-//           child: Card(
-//             elevation: 5.0,
-//             child: Container(
-//               alignment: Alignment.centerLeft,
-//               margin: EdgeInsets.only(top: 10.0, bottom: 10.0,left: 10.0),
-//               child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   Image.asset("assets/images/exercises/"+images[index],
-//                     width: MediaQuery.of(context).size.width * 0.4,
-//                     height: MediaQuery.of(context).size.height * 0.17,
-//                   ),
-//                   //mediaquery.of(context).size.width
-//                   Text(spacecrafts[index],style: const TextStyle(
-//                       fontSize: 20,
-//                       fontWeight: FontWeight.w300
-//                   ),),
-//                 ],
-//               ),
-//             ),
-//           ),
-//           onTap: () {
-//             showDialog(
-//                 barrierDismissible: false,
-//                 context: context,
-//                 builder: (BuildContext context) =>CupertinoAlertDialog(
-//                   title: Column(
-//                     children: <Widget>[
-//                       Text("GridView"),
-//                       const Icon(
-//                         Icons.favorite,
-//                         color: Colors.red,
-//                       ),
-//                     ],
-//                   ),
-//                   content: Text( spacecrafts[index]),
-//                   actions: <Widget>[
-//                     FlatButton(
-//                         onPressed: () {
-//                           Navigator.of(context).pop();
-//                         },
-//                         child: const Text("OK"))
-//                   ],
-//                 ));
-//           },
-//         );
-//       },
-//     );
-//
-//
-//     return SafeArea(
-//       child: Scaffold(
-//         drawer: SideDrawer(),
-//         appBar: AppBar(
-//           centerTitle: true,
-//           title: const Text('the fitNESS app'),
-//           actions: [ RaisedButton(
-//             color: Colors.deepOrange,
-//             child: const CircleAvatar(
-//               maxRadius: 25,
-//               // backgroundImage: NetworkImage(user!.photoURL),
-//             ),
-//             onPressed:(){
-//               //go to edit profile
-//             },
-//           ),
-//
-//
-//           ],
-//         ),
-//         body: myGridView
-//       ),
-//     );
-//   }
-//
-// }
-//
