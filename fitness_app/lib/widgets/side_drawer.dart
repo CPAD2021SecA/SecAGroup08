@@ -31,11 +31,6 @@ class SideDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.stacked_bar_chart),
-            title: const Text('View Stats'),
-            onTap: () => {},
-          ),
-          ListTile(
             leading: Icon(Icons.settings),
             title: const Text('Settings'),
             onTap: () => {
