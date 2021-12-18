@@ -79,7 +79,8 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
               color: Colors.deepOrange,
               child:  CircleAvatar(
                 maxRadius: 25,
-                backgroundImage: NetworkImage(user!.photoURL!),
+                backgroundImage: NetworkImage(user!.photoURL != null?  user!.photoURL! :
+                "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"),
               ),
               onPressed:(){
                 //go to edit profile

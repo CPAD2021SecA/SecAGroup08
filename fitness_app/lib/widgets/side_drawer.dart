@@ -50,10 +50,10 @@ class SideDrawer extends StatelessWidget {
           ListTile(
             leading: ElevatedButton(
               onPressed: () {
-
                 final provider =
                 Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.logout();
+
               },
               child: const Text('Logout'),
             ),

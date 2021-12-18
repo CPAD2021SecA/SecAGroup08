@@ -1,8 +1,13 @@
+import 'package:fitness_app/core/utils/email_auth.dart';
+import 'package:fitness_app/screens/home_page/home_page.dart';
 import 'package:fitness_app/widgets/google_sign_in.dart';
+import 'package:fitness_app/widgets/logged_in_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -14,8 +19,21 @@ class LoginScreen extends StatelessWidget {
     return FlutterLogin(
       title: 'Login',
       // logo: const AssetImage('assets/images/fitness2.png'),
-      onLogin: (param) {},
-      onSignup: (param) {},
+      onLogin: (param) {
+        var authHandler = new Auth();
+        authHandler.handleSignInEmail(param.name, param.password)
+            .then((User user) {
+              print(user.email! +"ok");
+          Navigator.push(context, new MaterialPageRoute(builder: (context) => new LoggedInWidget()));
+        }).catchError((e) => print(e));
+      },
+      onSignup: (param) {
+        var authHandler = new Auth();
+        authHandler.handleSignUp(param.name, param.password)
+            .then((User user) {
+          Navigator.push(context, new MaterialPageRoute(builder: (context) => new LoggedInWidget()));
+        }).catchError((e) => print(e));
+      },
       theme: LoginTheme(
         primaryColor: Colors.deepPurple,
         accentColor: Colors.white70,

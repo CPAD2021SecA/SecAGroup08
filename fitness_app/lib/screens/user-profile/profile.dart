@@ -82,7 +82,9 @@ class _ProfileAppState extends State<ProfileApp> {
                     children: [
                       CircleAvatar(
                         backgroundImage: NetworkImage(
-                          widget.user!.photoURL!,
+                          widget.user!.photoURL != null?  widget.user!.photoURL! :
+                          "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
+
                         ),
                         radius: 50.0,
                       ),
@@ -90,8 +92,9 @@ class _ProfileAppState extends State<ProfileApp> {
                         height: 10.0,
                       ),
                       Text(
-                        widget.user!.displayName!,
-                        style: TextStyle(
+
+                        widget.user!.displayName != null ? widget.user!.displayName! : "Praveen Kumar",
+                        style: const TextStyle(
                           fontSize: 22.0,
                           color: Colors.white,
                         ),
@@ -112,7 +115,7 @@ class _ProfileAppState extends State<ProfileApp> {
                                 child: Column(
 
                                   children: [
-                                    Text(
+                                    const Text(
                                       "Height",
                                       style: TextStyle(
                                         color: Colors.redAccent,
