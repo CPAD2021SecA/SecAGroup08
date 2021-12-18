@@ -33,8 +33,8 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
   @override
   Widget build(BuildContext context) {
 
-    var spacecrafts = ["PushUp", "Side Squats", "Squats", "PullUp"];
-    var images = ["workout1.png","workout2.png","workout3.png", "workout4.png"];
+    var spacecrafts = ["Cobra", "Leg Raises", "Crunches", "Lunges", "Skipping", "Mountain climbing", "Plank", "reverse leg raises","bridge"];
+    var images = ["1.jpg","cat2.gif", "2.jpg","cat7.gif", "3.jpg", "cat3.gif", "5.jpg",  "cat5.gif", "7.jpg"];
     var myGridView = GridView.builder(
       itemCount: spacecrafts.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
@@ -74,9 +74,9 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
           drawer: SideDrawer(),
           appBar: AppBar(
             centerTitle: true,
-            title: const Text('the fitNESS app'),
+            title: const Text('Fitness app'),
             actions: [ RaisedButton(
-              color: Colors.deepOrange,
+              color: Colors.deepPurple,
               child:  CircleAvatar(
                 maxRadius: 25,
                 backgroundImage: NetworkImage(user!.photoURL != null?  user!.photoURL! :

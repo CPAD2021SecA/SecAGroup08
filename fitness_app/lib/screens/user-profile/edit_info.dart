@@ -19,7 +19,7 @@ class EditProfile extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text('the fitNESS app'),
+          title: const Text('Fitness app'),
         ),
         drawer: SideDrawer(),
         body:  MyCustomForm( user: user),
@@ -60,131 +60,138 @@ class MyCustomFormState extends State<MyCustomForm> {
     TextEditingController _controllerHeight = TextEditingController();
     TextEditingController _controllerWeight = TextEditingController();
     TextEditingController _controllerAge = TextEditingController();
-    return Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0)
-          ),
-          TextFormField(
-            onChanged: (value){
-              height = value;
-            },
-            controller: _controllerHeight,
-            cursorRadius: const Radius.circular(5.0),
-            decoration:  InputDecoration(
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0),
-                  borderSide: const BorderSide(
-                    color: Colors.deepPurple,
-                  )),
-              labelText: 'Height',
+    return SafeArea(
+      child: Form(
+        key: _formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.0)
             ),
-            // The validator receives the text that the user has entered.
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0)
-          ),
-          TextFormField(
-            onChanged: (value){
-              weight = value;
-            },
-            controller: _controllerWeight,
-          cursorRadius: const Radius.circular(5.0),
-            decoration: InputDecoration(
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0),
-                  borderSide: const BorderSide(
-                    color: Colors.deepPurple,
-                  )),
-              labelText: 'Weight',
-            ),
-            // The validator receives the text that the user has entered.
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0)
-          ),
-          TextFormField(
-            onChanged: (value){
-              age = value;
-            },
-            controller: _controllerAge,
-            cursorRadius: const Radius.circular(5.0),
-            decoration:  InputDecoration(
-              border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30.0),
-              borderSide: const BorderSide(
-              color: Colors.deepPurple,
-              )),
-              labelText: 'Age',
-              fillColor: Colors.white,
-            ),
-
-            // The validator receives the text that the user has entered.
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-              primary: Colors.deepPurple,
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-              textStyle: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold)),
-              onPressed: () {
-                // Validate returns true if the form is valid, or false otherwise.
-                if (_formKey.currentState!.validate()) {
-
-                  // If the form is valid, display a snackbar. In the real world,
-                  // you'd often call a server or save the information in a database.
-
-                  // return _db
-                  //     .collection('jobs')
-                  //     .where("categoryId", isEqualTo: categoryId)
-                  //   .getDocuments()
-                  //     .then((v) {
-                  //     try{
-                  //     v.documents[0].data.update('isApproved', (bool) => true,ifAbsent: ()=>true);
-
-                  db.collection('profile').doc(user!.email).update(
-                      {
-                        'height': height,
-                        'age': age,
-                        'weight': weight
-                      }
-                  );
-
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Data updated')),
-                  );
-
-                }
-                _controllerHeight.clear();
-                _controllerWeight.clear();
-                _controllerAge.clear();
+            TextFormField(
+              onChanged: (value){
+                height = value;
               },
-              child: const Text('Submit'),
+              controller: _controllerHeight,
+              cursorRadius: const Radius.circular(5.0),
+              decoration:  InputDecoration(
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0),
+                    borderSide: const BorderSide(
+                      color: Colors.deepPurple,
+                    )),
+                labelText: 'Height',
+              ),
+              // The validator receives the text that the user has entered.
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
             ),
-          ),
-        ],
+            const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.0)
+            ),
+            TextFormField(
+              onChanged: (value){
+                weight = value;
+              },
+              controller: _controllerWeight,
+            cursorRadius: const Radius.circular(5.0),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0),
+                    borderSide: const BorderSide(
+                      color: Colors.deepPurple,
+                    )),
+                labelText: 'Weight',
+              ),
+              // The validator receives the text that the user has entered.
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+            ),
+            const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.0)
+            ),
+            TextFormField(
+              onChanged: (value){
+                age = value;
+              },
+              controller: _controllerAge,
+              cursorRadius: const Radius.circular(5.0),
+              decoration:  InputDecoration(
+                border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30.0),
+                borderSide: const BorderSide(
+                color: Colors.deepPurple,
+                )),
+                labelText: 'Age',
+                fillColor: Colors.white,
+              ),
+
+              // The validator receives the text that the user has entered.
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.deepPurple,
+                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                        textStyle: const TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold)),
+                    onPressed: () {
+                      // Validate returns true if the form is valid, or false otherwise.
+                      if (_formKey.currentState!.validate()) {
+
+                        // If the form is valid, display a snackbar. In the real world,
+                        // you'd often call a server or save the information in a database.
+
+                        // return _db
+                        //     .collection('jobs')
+                        //     .where("categoryId", isEqualTo: categoryId)
+                        //   .getDocuments()
+                        //     .then((v) {
+                        //     try{
+                        //     v.documents[0].data.update('isApproved', (bool) => true,ifAbsent: ()=>true);
+
+                        db.collection('profile').doc(user!.email).update(
+                            {
+                              'height': height,
+                              'age': age,
+                              'weight': weight
+                            }
+                        );
+
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Data updated')),
+                        );
+
+                      }
+                      _controllerHeight.clear();
+                      _controllerWeight.clear();
+                      _controllerAge.clear();
+                    },
+                    child: const Text('Submit'),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

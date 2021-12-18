@@ -1,3 +1,4 @@
+import 'package:fitness_app/widgets/side_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 
@@ -16,11 +17,16 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Fitness app'),
+      ),
+      drawer: SideDrawer(),
       body: SettingsList(
         sections: [
           SettingsSection(
             titlePadding: const EdgeInsets.all(20),
-            title: 'Section 1',
+            title: 'General',
             tiles: [
               SettingsTile(
                 title: 'Language',
@@ -42,7 +48,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           SettingsSection(
             titlePadding: const EdgeInsets.all(20),
-            title: 'Section 2',
+            title: 'Security',
             tiles: [
               SettingsTile(
                 title: 'Security',

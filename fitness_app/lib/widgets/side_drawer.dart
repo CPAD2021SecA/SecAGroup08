@@ -15,13 +15,13 @@ class SideDrawer extends StatelessWidget {
           const DrawerHeader(
             child: Center(
               child: Text(
-                'the fitNESS app',
+                'Fitness App',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),
               ),
             ),
             decoration: BoxDecoration(
-              color: Colors.deepOrange,
+              color: Colors.deepPurple,
             ),
           ),
           ListTile(

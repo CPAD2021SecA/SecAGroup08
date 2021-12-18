@@ -32,7 +32,7 @@ class _ExerciseScreenState extends State<ExerciseScreen>{
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('the fitNESS app'),
+        title: const Text('Fitness app'),
       ),
       drawer: SideDrawer(),
       body: Center(

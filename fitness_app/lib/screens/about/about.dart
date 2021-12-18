@@ -15,7 +15,7 @@ class About extends StatelessWidget {
         drawer: SideDrawer(),
         appBar: AppBar(
           centerTitle: true,
-          title: Text('the fitNESS app'),
+          title: Text('Fitness app'),
         ),
         body: ContactUs(
           logo: const AssetImage('assets/images/fitness2.png'),

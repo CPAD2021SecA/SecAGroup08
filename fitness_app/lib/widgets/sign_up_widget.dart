@@ -20,7 +20,7 @@ class SignUpWidget extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 20),
           width: 175,
           child: const Text(
-            'Welcome to the fitNESS app',
+            'Welcome to the Fitness app',
             style: TextStyle(
               color: Colors.white,
               fontSize: 30,

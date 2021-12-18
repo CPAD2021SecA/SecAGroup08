@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitness_app/core/utils/orientation_util.dart';
 import 'package:fitness_app/screens/user-profile/edit_info.dart';
 import 'package:fitness_app/widgets/side_drawer.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ class _ProfileAppState extends State<ProfileApp> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('the fitNESS app'),
+        title: const Text('Fitness app'),
       ),
       drawer: SideDrawer(),
       body: Column(
@@ -69,17 +70,20 @@ class _ProfileAppState extends State<ProfileApp> {
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [Colors.deepOrange, Colors.pinkAccent]
+                      colors: [Colors.deepPurple, Colors.pinkAccent]
                   )
               ),
               child: SizedBox(
                 width: double.infinity,
-                height: 350.0,
+                // height: OrientationUtil.getHeight(context, 0.25, 0.25),
                 child: Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      SizedBox(
+                        height: OrientationUtil.getHeight(context, 0.05, 0.05),
+                      ),
                       CircleAvatar(
                         backgroundImage: NetworkImage(
                           widget.user!.photoURL != null?  widget.user!.photoURL! :
@@ -88,9 +92,7 @@ class _ProfileAppState extends State<ProfileApp> {
                         ),
                         radius: 50.0,
                       ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
+
                       Text(
 
                         widget.user!.displayName != null ? widget.user!.displayName! : "Praveen Kumar",
@@ -99,8 +101,8 @@ class _ProfileAppState extends State<ProfileApp> {
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(
-                        height: 10.0,
+                       SizedBox(
+                        height: OrientationUtil.getHeight(context, 0.05, 0.05),
                       ),
                       Card(
                         margin: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 5.0),
@@ -118,19 +120,19 @@ class _ProfileAppState extends State<ProfileApp> {
                                     const Text(
                                       "Height",
                                       style: TextStyle(
-                                        color: Colors.redAccent,
+                                        color: Colors.deepPurple,
                                         fontSize: 22.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 5.0,
+                                      height: OrientationUtil.getHeight(context, 0.05, 0.05),
                                     ),
                                     Text(
                                       widget.height,
                                       style: TextStyle(
                                         fontSize: 20.0,
-                                        color: Colors.pinkAccent,
+                                        color: Colors.deepPurple,
                                       ),
                                     )
                                   ],
@@ -143,19 +145,19 @@ class _ProfileAppState extends State<ProfileApp> {
                                     Text(
                                       "Weight",
                                       style: TextStyle(
-                                        color: Colors.redAccent,
+                                        color: Colors.deepPurple,
                                         fontSize: 22.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 5.0,
+                                      height: OrientationUtil.getHeight(context, 0.05, 0.05),
                                     ),
                                     Text(
                                       widget.weight+"KG",
                                       style: TextStyle(
                                         fontSize: 20.0,
-                                        color: Colors.pinkAccent,
+                                        color: Colors.deepPurple,
                                       ),
                                     )
                                   ],
@@ -168,19 +170,19 @@ class _ProfileAppState extends State<ProfileApp> {
                                     Text(
                                       "Age",
                                       style: TextStyle(
-                                        color: Colors.redAccent,
+                                        color: Colors.deepPurple,
                                         fontSize: 22.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 5.0,
+                                      height: OrientationUtil.getHeight(context, 0.05, 0.05),
                                     ),
                                     Text(
                                       widget.age,
                                       style: TextStyle(
                                         fontSize: 20.0,
-                                        color: Colors.pinkAccent,
+                                        color: Colors.deepPurple,
                                       ),
                                     )
                                   ],
@@ -195,8 +197,8 @@ class _ProfileAppState extends State<ProfileApp> {
                 ),
               )
           ),
-          const SizedBox(
-            height: 20.0,
+           SizedBox(
+            height: OrientationUtil.getHeight(context, 0.02, 0.02),
           ),
           SizedBox(
             width: 300.00,
@@ -210,13 +212,13 @@ class _ProfileAppState extends State<ProfileApp> {
                     gradient: LinearGradient(
                         begin: Alignment.centerRight,
                         end: Alignment.centerLeft,
-                        colors: [Colors.pink,Colors.pinkAccent]
+                        colors: [Colors.deepPurple,Colors.deepPurple]
                     ),
                     //borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: Container(
 
-                    constraints: const BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
+                    constraints:  BoxConstraints(maxWidth: 300.0, minHeight: OrientationUtil.getHeight(context, 0.05, 0.05)),
                     alignment: Alignment.center,
                     child: const Text("Edit Profile",
                       style: TextStyle(color: Colors.white, fontSize: 26.0, fontWeight:FontWeight.w300),
@@ -226,7 +228,7 @@ class _ProfileAppState extends State<ProfileApp> {
             ),
           ),
             SizedBox(
-            height: 300.0,
+            height: OrientationUtil.getHeight(context, 0.2, 0.2),
             width: 280.0,
             child: SfCartesianChart(                  // Initialize category axis
             primaryXAxis: CategoryAxis(),
