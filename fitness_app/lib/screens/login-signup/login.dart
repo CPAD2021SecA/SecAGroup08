@@ -7,7 +7,7 @@ import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -31,6 +31,18 @@ class LoginScreen extends StatelessWidget {
         var authHandler = new Auth();
         authHandler.handleSignUp(param.name, param.password)
             .then((User user) {
+
+          final db = FirebaseFirestore.instance;
+
+          db.collection('profile').doc(user!.email).update(
+              {
+                'height': '-',
+                'age': '-',
+                'weight': '-'
+              }
+          );
+
+
           Navigator.push(context, new MaterialPageRoute(builder: (context) => new LoggedInWidget()));
         }).catchError((e) => print(e));
       },
@@ -47,6 +59,8 @@ class LoginScreen extends StatelessWidget {
             final provider =
             Provider.of<GoogleSignInProvider>(context, listen: false);
             provider.login();
+
+
           },
         ),
         LoginProvider(

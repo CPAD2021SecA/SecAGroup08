@@ -14,16 +14,13 @@ class EditProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     const appTitle = 'Edit Personal Info';
 
-    return MaterialApp(
-      title: appTitle,
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Fitness app'),
-        ),
-        drawer: SideDrawer(),
-        body:  MyCustomForm( user: user),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Fitness app'),
       ),
+      drawer: SideDrawer(),
+      body:  MyCustomForm( user: user),
     );
   }
 }
