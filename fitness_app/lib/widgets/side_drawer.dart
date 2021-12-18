@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/utils/providerhelper.dart';
 import 'package:fitness_app/screens/about/about.dart';
 import 'package:fitness_app/screens/home_page/home_page.dart';
 import 'package:fitness_app/screens/user-profile/settings.dart';
@@ -49,6 +50,7 @@ class SideDrawer extends StatelessWidget {
           ListTile(
             leading: ElevatedButton(
               onPressed: () {
+
                 final provider =
                 Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.logout();

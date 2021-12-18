@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitness_app/core/utils/providerhelper.dart';
 import 'package:fitness_app/widgets/google_sign_in.dart';
 import 'package:fitness_app/widgets/logged_in_widget.dart';
 import 'package:fitness_app/widgets/sign_up_widget.dart';

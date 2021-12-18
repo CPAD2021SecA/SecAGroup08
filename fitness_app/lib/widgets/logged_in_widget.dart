@@ -21,11 +21,11 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
 
   @override
   void initState() {
-    db.collection('profile').doc(user!.email).set({
-      'height':'-',
-      'age':'-',
-      'weight':'-'
-    });
+    // db.collection('profile').doc(user!.email).set({
+    //   'height':'-',
+    //   'age':'-',
+    //   'weight':'-'
+    // });
     super.initState();
 
   }
