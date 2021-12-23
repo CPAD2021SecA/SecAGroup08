@@ -4,11 +4,6 @@ import 'package:fitness_app/core/utils/orientation_util.dart';
 import 'package:fitness_app/widgets/side_drawer.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(
-      home: ExerciseScreen(passedImage: "2")),
-  );
-}
 
 class ExerciseScreen extends StatefulWidget{
   final String passedImage;
